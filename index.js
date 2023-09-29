@@ -2,9 +2,13 @@ require('dotenv').config();
 
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
+const connectDB = require('./config/db')
 
 const app = express();
 const port = 3000 || process.env.PORT;
+
+// connect to database
+connectDB();
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
@@ -17,16 +21,14 @@ app.use(expressLayout);
 app.set('layout','./layouts/main');
 app.set('view engine', 'ejs');
 
-//home 
-app.get('/', (req, res) => {
+//router customer
+app.use('/', require('./routers/customer'))
 
-    const locals = {
-        title: 'GSM AAL',
-        description: 'Guest Management System'
-    }
+//handle 404
 
-    res.render('index', locals)
-});
+app.get('*', (req, res) => {
+    res.status(404).render('404');
+})
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}!!!`);
