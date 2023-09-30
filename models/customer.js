@@ -10,11 +10,35 @@ const CustomerSchema = new Schema({
     type: String,
     required: true
   },
-  tel: {
+  telephone: {
     type: String,
     required: true
   },
-  email: {
+  emailBusiness: {
+    type: String,
+    required: true
+  },
+  idNumber: {
+    type: String,
+    required: true
+  },
+  companyName: {
+    type: String,
+    required: true
+  },
+  userDestination: {
+    type: String,
+    required: true
+  },
+  purposeOfVisit: {
+    type: String,
+    required: true
+  },
+  startDate: {
+    type: String,
+    required: true
+  },
+  endDate: {
     type: String,
     required: true
   },

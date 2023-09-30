@@ -44,8 +44,14 @@ exports.postCustomer = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         details: req.body.details,
-        tel: req.body.tel,
-        email: req.body.email,
+        telephone: req.body.telephone,
+        emailBusiness: req.body.emailBusiness,
+        idNumber: req.body.idNumber,
+        companyName: req.body.companyName,
+        userDestination: req.body.userDestination,
+        purposeOfVisit: req.body.purposeOfVisit,
+        startDate: req.body.startDate,
+        endDate: req.body.endDate
     });
 
     try {
