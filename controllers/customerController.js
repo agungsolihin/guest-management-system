@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 exports.homepage = async (req, res) => {
     
         const locals = {
-            title: 'GSM AAL',
+            title: 'GMS AAL',
             description: 'Guest Management System'
         }
 
@@ -49,9 +49,9 @@ exports.postCustomer = async (req, res) => {
     });
 
     try {
-        await Customer.create(newCustomer);
+        await customer.create(newCustomer);
         res.redirect('/');
     } catch (error) {
-        console.log(error);
-    }   
+        console.log(error)
+    }
 }
