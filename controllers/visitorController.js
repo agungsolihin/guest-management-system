@@ -1,4 +1,4 @@
-const customer = require('../models/customer');
+const visitor = require('../models/visitor');
 const mongoose = require('mongoose');
 
 /**
@@ -18,29 +18,29 @@ exports.homepage = async (req, res) => {
 
 /**
  * GET /
- * New Customer Form
+ * New Visitor Form
  */
 
-exports.addCustomer = async (req, res) => {
+exports.addVisitor = async (req, res) => {
     
     const locals = {
-        title: 'Add New Customer',
+        title: 'Add New Visitor',
         description: 'Guest Management System'
     }
 
-    res.render('customer/add', locals);
+    res.render('visitor/add', locals);
 }
 
 /**
  * POST /
- * Create New Customer Form
+ * Create New Visitor Form
  */
 
-exports.postCustomer = async (req, res) => {
+exports.postVisitor = async (req, res) => {
 
     console.log(req.body);
 
-    const newCustomer = new customer({
+    const newVisitor = new visitor({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         details: req.body.details,
@@ -55,7 +55,7 @@ exports.postCustomer = async (req, res) => {
     });
 
     try {
-        await customer.create(newCustomer);
+        await visitor.create(newVisitor);
         res.redirect('/');
     } catch (error) {
         console.log(error)
